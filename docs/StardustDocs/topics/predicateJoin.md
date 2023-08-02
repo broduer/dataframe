@@ -1,6 +1,6 @@
 [//]: # (title: predicateJoin)
 
-<!---IMPORT org.jetbrains.kotlinx.dataframe.samples.api.Join-->
+<!---IMPORT org.jetbrains.kotlinx.dataframe.samples.api.PredicateJoin-->
 
 Joins two [`DataFrames`](DataFrame.md) by a join expression. 
 
@@ -43,7 +43,7 @@ For every join type there is a shortcut operation:
 <tab title="Properties">
 
 ```kotlin
-campaigns.predicateJoin(visits) {
+campaigns.innerPredicateJoin(visits) {
     right.date in startDate..endDate
 }
 ```
@@ -56,7 +56,7 @@ val date by column<LocalDate>()
 val startDate by column<LocalDate>()
 val endDate by column<LocalDate>()
 
-campaigns.predicateJoin(visits) {
+campaigns.innerPredicateJoin(visits) {
     right[date] in startDate()..endDate()
 }
 ```
@@ -65,13 +65,13 @@ campaigns.predicateJoin(visits) {
 <tab title="Strings">
 
 ```kotlin
-campaigns.predicateJoin(visits) {
+campaigns.innerPredicateJoin(visits) {
     right[{ "date"<LocalDate>() }] in "startDate"<LocalDate>().."endDate"<LocalDate>()
 }
 ```
 
 </tab></tabs>
-<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.Join.predicateJoin.html"/>
+<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.PredicateJoin.predicateJoin.html"/>
 <!---END-->
 
 #### Filter join
@@ -111,7 +111,7 @@ campaigns.filterPredicateJoin(visits) {
 ```
 
 </tab></tabs>
-<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.Join.filterPredicateJoin.html"/>
+<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.PredicateJoin.filterPredicateJoin.html"/>
 <!---END-->
 
 #### Left join
@@ -149,7 +149,7 @@ campaigns.leftPredicateJoin(visits) {
 ```
 
 </tab></tabs>
-<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.Join.leftPredicateJoin.html"/>
+<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.PredicateJoin.leftPredicateJoin.html"/>
 <!---END-->
 
 #### Right join
@@ -187,7 +187,7 @@ campaigns.rightPredicateJoin(visits) {
 ```
 
 </tab></tabs>
-<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.Join.rightPredicateJoin.html"/>
+<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.PredicateJoin.rightPredicateJoin.html"/>
 <!---END-->
 
 #### Full join
@@ -225,7 +225,7 @@ campaigns.fullPredicateJoin(visits) {
 ```
 
 </tab></tabs>
-<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.Join.fullPredicateJoin.html"/>
+<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.PredicateJoin.fullPredicateJoin.html"/>
 <!---END-->
 
 #### Exclude join
@@ -265,7 +265,7 @@ campaigns.excludePredicateJoin(visits) {
 ```
 
 </tab></tabs>
-<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.Join.excludePredicateJoin.html"/>
+<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.PredicateJoin.excludePredicateJoin.html"/>
 <!---END-->
 
 #### Cross join
@@ -278,6 +278,6 @@ Can also be called cross product of two dataframes
 campaigns.predicateJoin(visits) { true }
 ```
 
-<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.Join.crossProduct.html"/>
+<dataFrame src="org.jetbrains.kotlinx.dataframe.samples.api.PredicateJoin.crossProduct.html"/>
 <!---END-->
 
